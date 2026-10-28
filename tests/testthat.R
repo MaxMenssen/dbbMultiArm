@@ -1,4 +1,4 @@
 library(testthat)
-library(MultiMAP)
+library(dbbMultiArm)
 
-test_check("MultiMAP")
+test_check("dbbMultiArm")

@@ -2,20 +2,20 @@
 % Please edit documentation in R/REPORT_norm.R
 \name{REPORT_norm}
 \alias{REPORT_norm}
-\title{Generate a MultiMAP analysis report template}
+\title{Generate a dbbMultiArm analysis report template}
 \usage{
 REPORT_norm(
   x,
   path = NULL,
   file = NULL,
-  title = "MultiMAP analysis report",
+  title = "dbbMultiArm analysis report",
   author = "",
   format = c("qmd", "rmd"),
   overwrite = FALSE
 )
 }
 \arguments{
-\item{x}{a MultiMAP object produced by \code{\link{SCI_norm}} or
+\item{x}{a dbbMultiArm object produced by \code{\link{SCI_norm}} or
 \code{\link{PI_norm}} (single-arm or multi-arm).}
 
 \item{path}{output directory. \code{NULL} (default) writes into
@@ -24,7 +24,7 @@ location is given explicitly); pass an explicit directory (e.g.
 \code{getwd()}) to write elsewhere.}
 
 \item{file}{file name of the report within \code{path}. \code{NULL} (default)
-uses \code{"MultiMAP_report.qmd"} (qmd) or \code{"MultiMAP_report.Rmd"}
+uses \code{"dbbMultiArm_report.qmd"} (qmd) or \code{"dbbMultiArm_report.Rmd"}
 (rmd). A full path may also be given, in which case its directory overrides
 \code{path}.}
 
@@ -41,7 +41,7 @@ The report file path, invisibly. As a side effect it writes the report
   file and the \code{"<file>_object.rds"} it loads.
 }
 \description{
-Writes a Quarto (.qmd) or R Markdown (.Rmd) report template for a MultiMAP
+Writes a Quarto (.qmd) or R Markdown (.Rmd) report template for a dbbMultiArm
 object, suitable as a starting point for the statistical analysis plan (SAP)
 of a clinical study. The fitted object is saved next to the report as an
 \code{.rds} file; the template loads it and rebuilds every table and figure

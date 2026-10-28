@@ -1,10 +1,10 @@
-# MultiMAP
+# dbbMultiArm
 
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
 Simultaneous credible intervals for multi-arm studies that borrow historical
 controls or other external data via robustified meta-analytic-predictive (MAP)
-priors. `MultiMAP` also provides MAP-based prediction intervals for a quality
+priors. `dbbMultiArm` also provides MAP-based prediction intervals for a quality
 check of the concurrent control, as desired by many OECD test guidelines for
 regulatory toxicology studies. Normal, binomial and Poisson endpoints are
 supported.
@@ -16,7 +16,7 @@ supported.
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("MaxMenssen/MultiMAP")
+remotes::install_github("MaxMenssen/dbbMultiArm")
 ```
 
 ## Example
@@ -26,7 +26,7 @@ compute simultaneous credible intervals for the dose-vs-control risk ratios
 (binomial endpoint):
 
 ``` r
-library(MultiMAP)
+library(dbbMultiArm)
 
 # Historical control data (one row per study)
 histdat <- data.frame(events     = c(2, 2, 1, 5, 3, 5, 2, 2, 4, 2, 3, 3, 3, 2, 3, 4),

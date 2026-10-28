@@ -1,4 +1,4 @@
-#' Monte-Carlo operating characteristics for the normal MultiMAP workflow
+#' Monte-Carlo operating characteristics for the normal dbbMultiArm workflow
 #'
 #' Runs a complete Monte-Carlo study for one parameter scenario and returns a
 #' one-row data frame of operating characteristics, so rows for many scenarios

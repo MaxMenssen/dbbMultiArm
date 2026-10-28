@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_output.R
 \name{get_output}
 \alias{get_output}
-\title{Extract a component from a MultiMAP object}
+\title{Extract a component from a dbbMultiArm object}
 \usage{
 get_output(
   x,
@@ -11,7 +11,7 @@ get_output(
 )
 }
 \arguments{
-\item{x}{a MultiMAP object (from \code{\link{SCI_norm}}, \code{\link{PI_norm}},
+\item{x}{a dbbMultiArm object (from \code{\link{SCI_norm}}, \code{\link{PI_norm}},
 \code{\link{SCI_binom}}, \code{\link{PI_binom}} \code{\link{PI_pois}} or \code{\link{SCI_pois}}).}
 
 \item{which}{which component to extract:
@@ -36,7 +36,7 @@ get_output(
 The requested component.
 }
 \description{
-Single entry point that returns a chosen component of a MultiMAP object -- the
+Single entry point that returns a chosen component of a dbbMultiArm object -- the
 output of \code{\link{SCI_norm}}, \code{\link{PI_norm}}, \code{\link{SCI_binom}},
 \code{\link{PI_binom}}, \code{\link{PI_pois}} or \code{\link{SCI_pois}} 
 -- selected via \code{which}.

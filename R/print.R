@@ -1,13 +1,13 @@
-#' Print a MultiMAP object
+#' Print a dbbMultiArm object
 #'
-#' Compact console output for a MultiMAP object (normal or binomial endpoint).
+#' Compact console output for a dbbMultiArm object (normal or binomial endpoint).
 #' For \code{SCI} output (class \code{"SCI"}, from \code{\link{SCI_norm}} /
 #' \code{\link{SCI_binom}}) it prints the table of simultaneous credible
 #' intervals (\code{x$comp}); for \code{PI} output (class \code{"PI"}, from
 #' \code{\link{PI_norm}} / \code{\link{PI_binom}}) it prints the prediction
 #' interval (\code{x$pred_int}).
 #'
-#' @param x a MultiMAP object (from \code{\link{SCI_norm}},
+#' @param x a dbbMultiArm object (from \code{\link{SCI_norm}},
 #'   \code{\link{PI_norm}}, \code{\link{SCI_binom}}, \code{\link{PI_binom}} or
 #'   \code{\link{SCI_pois}}).
 #' @param ... passed to the underlying \code{print} call.
@@ -23,11 +23,11 @@
 #' print(pred)
 #' }
 #' @export
-print.MultiMAP <- function(x, ...){
+print.dbbMultiArm <- function(x, ...){
 
-        # Stop if x is not a MultiMAP object
-        if(!inherits(x, "MultiMAP")){
-                stop("x is not of class MultiMAP")
+        # Stop if x is not a dbbMultiArm object
+        if(!inherits(x, "dbbMultiArm")){
+                stop("x is not of class dbbMultiArm")
         }
 
         if(inherits(x, "SCI")){

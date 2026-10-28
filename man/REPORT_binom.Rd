@@ -2,20 +2,20 @@
 % Please edit documentation in R/REPORT_binom.R
 \name{REPORT_binom}
 \alias{REPORT_binom}
-\title{Generate a MultiMAP analysis report template (binomial endpoint)}
+\title{Generate a dbbMultiArm analysis report template (binomial endpoint)}
 \usage{
 REPORT_binom(
   x,
   path = NULL,
   file = NULL,
-  title = "MultiMAP analysis report",
+  title = "dbbMultiArm analysis report",
   author = "",
   format = c("qmd", "rmd"),
   overwrite = FALSE
 )
 }
 \arguments{
-\item{x}{a binomial MultiMAP object produced by \code{\link{SCI_binom}} or
+\item{x}{a binomial dbbMultiArm object produced by \code{\link{SCI_binom}} or
 \code{\link{PI_binom}} (single-arm or multi-arm).}
 
 \item{path}{output directory. \code{NULL} (default) writes into
@@ -24,7 +24,7 @@ location is given explicitly); pass an explicit directory (e.g.
 \code{getwd()}) to write elsewhere.}
 
 \item{file}{file name of the report within \code{path}. \code{NULL} (default)
-uses \code{"MultiMAP_report.qmd"} (qmd) or \code{"MultiMAP_report.Rmd"}
+uses \code{"dbbMultiArm_report.qmd"} (qmd) or \code{"dbbMultiArm_report.Rmd"}
 (rmd). A full path may also be given, in which case its directory overrides
 \code{path}.}
 
@@ -42,7 +42,7 @@ The report file path, invisibly. As a side effect it writes the report
 }
 \description{
 Writes a Quarto (.qmd) or R Markdown (.Rmd) report template for a binomial
-MultiMAP object (the output of \code{\link{SCI_binom}} or
+dbbMultiArm object (the output of \code{\link{SCI_binom}} or
 \code{\link{PI_binom}}), suitable as a starting point for the statistical
 analysis plan (SAP) of a clinical study. The fitted object is saved next to
 the report as an \code{.rds} file; the template loads it and rebuilds every
@@ -69,7 +69,7 @@ data, the shared block and the reference list.
 The prior / robustified-prior / posterior mixture densities are drawn with
 RBesT's own \code{plot} method; the prediction-interval figure and the
 simultaneous-credible-interval figure use the generic
-\code{\link{plot.MultiMAP}} method (\code{which = 1} and \code{which = 2}).
+\code{\link{plot.dbbMultiArm}} method (\code{which = 1} and \code{which = 2}).
 
 For a multi-arm borrowing object (\code{histdat} supplied to
 \code{\link{SCI_binom}} / \code{\link{PI_binom}} as a named list), the template

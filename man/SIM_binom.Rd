@@ -2,7 +2,7 @@
 % Please edit documentation in R/SIM_binom.R
 \name{SIM_binom}
 \alias{SIM_binom}
-\title{Monte-Carlo operating characteristics for the binomial MultiMAP workflow}
+\title{Monte-Carlo operating characteristics for the binomial dbbMultiArm workflow}
 \usage{
 SIM_binom(
   n_sim,

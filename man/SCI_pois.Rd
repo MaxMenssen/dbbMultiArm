@@ -102,8 +102,8 @@ zero-count arm's posterior off the rate 0; the posterior of a non-borrowing
 arm is \code{Gamma(shape + events, rate + offset)}.}
 }
 \value{
-A MultiMAP object: a named list with S3 class
-  \code{c("SCI", "MultiMAP_pois", "MultiMAP")} and the following slots:
+A dbbMultiArm object: a named list with S3 class
+  \code{c("SCI", "dbbMultiArm_pois", "dbbMultiArm")} and the following slots:
   \describe{
     \item{\code{comp}}{data frame of the simultaneous credible intervals: one
       row per contrast with columns \code{comp} (label), \code{estimate},

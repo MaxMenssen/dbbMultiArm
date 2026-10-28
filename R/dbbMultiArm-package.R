@@ -1,4 +1,4 @@
-#' MultiMAP: Bayesian dynamic borrowing with simultaneous credible intervals
+#' dbbMultiArm: Bayesian dynamic borrowing with simultaneous credible intervals
 #'
 #' Robustified priors for Bayesian dynamic borrowing from historical control
 #' data, with simultaneous credible intervals for treatment-vs-control
@@ -113,7 +113,7 @@ globalVariables(c(
 # Internal: human-readable label of a contrast type
 #
 # Singular form (for summary() headings) and plural / title-case form (for plot
-# titles). Shared by summary.MultiMAP() and plot.MultiMAP() so normal and
+# titles). Shared by summary.dbbMultiArm() and plot.dbbMultiArm() so normal and
 # binomial endpoints are described consistently.
 
 .contr_label <- function(contr){
@@ -232,7 +232,7 @@ globalVariables(c(
         invisible(df)
 }
 
-# One-paragraph "Methods" description for a MultiMAP object, embedded by the
+# One-paragraph "Methods" description for a dbbMultiArm object, embedded by the
 # REPORT_*() generators. It reflects the actual input: the prior method (MAP vs
 # EB), the hyperpriors (MAP) or estimated prior and overdispersion (EB), the
 # robustification weight, the number of historical studies and the endpoint.

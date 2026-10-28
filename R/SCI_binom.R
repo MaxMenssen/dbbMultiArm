@@ -63,8 +63,8 @@
 #'   borrowing). The default \code{c(1, 1)} is the uniform Beta(1, 1) prior; the
 #'   posterior of a non-borrowing arm is \code{Beta(a + events, b + non-events)}.
 #'
-#' @return A MultiMAP object: a named list with S3 class
-#'   \code{c("SCI", "MultiMAP_binom", "MultiMAP")} and the following slots:
+#' @return A dbbMultiArm object: a named list with S3 class
+#'   \code{c("SCI", "dbbMultiArm_binom", "dbbMultiArm")} and the following slots:
 #'   \describe{
 #'     \item{\code{comp}}{data frame of the simultaneous credible intervals: one
 #'       row per contrast with columns \code{comp} (label), \code{estimate},
@@ -656,7 +656,7 @@ SCI_binom <- function(histdat,
                          "seed"       = if(is.null(seed)) NA_integer_ else seed)
 
         out_s3 <- structure(out_list,
-                            class = c("SCI", "MultiMAP_binom", "MultiMAP"))
+                            class = c("SCI", "dbbMultiArm_binom", "dbbMultiArm"))
 
         return(out_s3)
 }
@@ -877,5 +877,5 @@ SCI_binom <- function(histdat,
                          "alpha"       = alpha,
                          "seed"        = if(is.null(seed)) NA_integer_ else seed)
 
-        structure(out_list, class = c("SCI", "MultiMAP_binom", "MultiMAP"))
+        structure(out_list, class = c("SCI", "dbbMultiArm_binom", "dbbMultiArm"))
 }

@@ -46,7 +46,7 @@ test_that("SCI_binom multi-arm borrows the named arms and keeps per-arm slots", 
         res <- suppressWarnings(SCI_binom(d$hist, d$newdat, prior_est = "EB",
                                           contr = "RR", seed = 1))
 
-        expect_s3_class(res, "MultiMAP")
+        expect_s3_class(res, "dbbMultiArm")
         expect_true(inherits(res, "SCI"))
         expect_identical(res$distr, "betabinomial")
 
@@ -180,7 +180,7 @@ test_that("a non-borrowed arm is allowed (uses the flat-prior posterior)", {
 # Normal multi-arm (MAP only -> needs MCMC)
 # ---------------------------------------------------------------------------
 
-test_that("SCI_norm multi-arm produces a per-arm MultiMAP object", {
+test_that("SCI_norm multi-arm produces a per-arm dbbMultiArm object", {
         skip_on_cran()
         skip_if_not_installed("RBesT")
 

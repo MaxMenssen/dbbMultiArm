@@ -1,6 +1,6 @@
-#' Plot a MultiMAP object
+#' Plot a dbbMultiArm object
 #'
-#' Single S3 plot method for MultiMAP objects, for normal
+#' Single S3 plot method for dbbMultiArm objects, for normal
 #' (\code{\link{SCI_norm}} / \code{\link{PI_norm}}), binomial
 #' (\code{\link{SCI_binom}} / \code{\link{PI_binom}}) and Poisson
 #' (\code{\link{SCI_pois}}) endpoints; the graphic is chosen via \code{which},
@@ -23,7 +23,7 @@
 #' a Poisson endpoint the discrete gamma-Poisson predictive drawn on the rate
 #' scale -- in both discrete cases the bars inside the interval are highlighted.
 #'
-#' @param x a MultiMAP object from \code{\link{SCI_norm}}, \code{\link{PI_norm}},
+#' @param x a dbbMultiArm object from \code{\link{SCI_norm}}, \code{\link{PI_norm}},
 #'   \code{\link{SCI_binom}} or \code{\link{PI_binom}}.
 #' @param which \code{1} (default) prediction-interval plot, \code{2}
 #'   simultaneous-CI plot, \code{3} prior/likelihood/posterior plot (both
@@ -68,7 +68,7 @@
 #' plot(res, which = 3)   # prior / likelihood / posterior
 #' }
 #' @export
-plot.MultiMAP <- function(x, which = 1, arm = NULL, ...){
+plot.dbbMultiArm <- function(x, which = 1, arm = NULL, ...){
 
         #-------------------- helper: prediction-interval plot -----------------
         # Normal endpoint: density of the (continuous) prediction distribution

@@ -90,8 +90,8 @@ borrowing). The default \code{c(1, 1)} is the uniform Beta(1, 1) prior; the
 posterior of a non-borrowing arm is \code{Beta(a + events, b + non-events)}.}
 }
 \value{
-A MultiMAP object: a named list with S3 class
-  \code{c("SCI", "MultiMAP_binom", "MultiMAP")} and the following slots:
+A dbbMultiArm object: a named list with S3 class
+  \code{c("SCI", "dbbMultiArm_binom", "dbbMultiArm")} and the following slots:
   \describe{
     \item{\code{comp}}{data frame of the simultaneous credible intervals: one
       row per contrast with columns \code{comp} (label), \code{estimate},

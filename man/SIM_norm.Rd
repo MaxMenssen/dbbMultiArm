@@ -2,7 +2,7 @@
 % Please edit documentation in R/SIM_norm.R
 \name{SIM_norm}
 \alias{SIM_norm}
-\title{Monte-Carlo operating characteristics for the normal MultiMAP workflow}
+\title{Monte-Carlo operating characteristics for the normal dbbMultiArm workflow}
 \usage{
 SIM_norm(
   n_sim,

@@ -52,8 +52,8 @@
 #'   the \code{gMAP} MCMC (for \code{prior_est = "MAP"}) is reproducible.
 #'   \code{NULL} (default) leaves the RNG state untouched.
 #'
-#' @return A MultiMAP object: a named list with S3 class
-#'   \code{c("PI", "MultiMAP_binom", "MultiMAP")} and the following slots:
+#' @return A dbbMultiArm object: a named list with S3 class
+#'   \code{c("PI", "dbbMultiArm_binom", "dbbMultiArm")} and the following slots:
 #'   \describe{
 #'     \item{\code{comp}}{\code{NA} (only \code{\link{SCI_binom}} fills this).}
 #'     \item{\code{contr}}{\code{NA} (only \code{\link{SCI_binom}} fills this).}
@@ -99,7 +99,7 @@
 #'   \code{eff_n_map} and \code{eff_n} become named vectors. Access these through
 #'   \code{\link{get_output}}, \code{summary} or \code{print} rather than by
 #'   indexing the slots directly.
-#'   Use \code{\link{summary.MultiMAP}}, \code{\link{get_output}} and
+#'   Use \code{\link{summary.dbbMultiArm}}, \code{\link{get_output}} and
 #'   \code{\link{REPORT_binom}} on it.
 #'
 #' @seealso \code{\link{SCI_binom}}, \code{\link{REPORT_binom}}
@@ -401,7 +401,7 @@ PI_binom <- function(histdat,
                          "seed"       = if(is.null(seed)) NA_integer_ else seed)
 
         out_s3 <- structure(out_list,
-                            class = c("PI", "MultiMAP_binom", "MultiMAP"))
+                            class = c("PI", "dbbMultiArm_binom", "dbbMultiArm"))
 
         return(out_s3)
 }
@@ -474,5 +474,5 @@ PI_binom <- function(histdat,
                          "alpha"       = alpha,
                          "seed"        = if(is.null(seed)) NA_integer_ else seed)
 
-        structure(out_list, class = c("PI", "MultiMAP_binom", "MultiMAP"))
+        structure(out_list, class = c("PI", "dbbMultiArm_binom", "dbbMultiArm"))
 }

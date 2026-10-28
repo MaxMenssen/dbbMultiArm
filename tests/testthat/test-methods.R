@@ -10,7 +10,7 @@ fit_eb <- function(contr = "pi_diff", limits = "two.sided"){
                                    limits = limits, seed = 1))
 }
 
-test_that("plot.MultiMAP returns ggplot objects for all three views (binomial)", {
+test_that("plot.dbbMultiArm returns ggplot objects for all three views (binomial)", {
         res <- fit_eb()
         expect_s3_class(plot(res, which = 1), "ggplot")
         expect_s3_class(plot(res, which = 2), "ggplot")
@@ -32,7 +32,7 @@ test_that("summary and print run and return invisibly (binomial)", {
 })
 
 test_that(".null_value maps ratio-type contrasts to 1 and differences to 0", {
-        nv <- getFromNamespace(".null_value", "MultiMAP")
+        nv <- getFromNamespace(".null_value", "dbbMultiArm")
         expect_equal(nv("pi_diff"),    0)
         expect_equal(nv("RR"),    1)
         expect_equal(nv("OR"),         1)

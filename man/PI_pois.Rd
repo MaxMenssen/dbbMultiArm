@@ -77,8 +77,8 @@ the \code{gMAP} MCMC (for \code{prior_est = "MAP"}) is reproducible.
 are zero.}
 }
 \value{
-A MultiMAP object: a named list with S3 class
-  \code{c("PI", "MultiMAP_pois", "MultiMAP")} and the following slots:
+A dbbMultiArm object: a named list with S3 class
+  \code{c("PI", "dbbMultiArm_pois", "dbbMultiArm")} and the following slots:
   \describe{
     \item{\code{comp}}{\code{NA} (only \code{\link{SCI_pois}} fills this).}
     \item{\code{contr}}{\code{NA} (only \code{\link{SCI_pois}} fills this).}
@@ -105,7 +105,7 @@ A MultiMAP object: a named list with S3 class
       rate (named \code{median}, \code{lower}, \code{upper}).}
     \item{\code{offset0}}{the exposure the predictive was built for (a single
       value, or one per arm for a multi-arm object); used by
-      \code{\link{plot.MultiMAP}} to draw the predictive on the rate scale.}
+      \code{\link{plot.dbbMultiArm}} to draw the predictive on the rate scale.}
     \item{\code{shrinkage}}{\code{NA} (only \code{\link{SCI_pois}} fills this).}
     \item{\code{simpost}}{\code{NA} (only \code{\link{SCI_pois}} fills this).}
     \item{\code{tau_prior}}{a list with the gMAP between-study heterogeneity
@@ -124,7 +124,7 @@ A MultiMAP object: a named list with S3 class
   \code{eff_n_map}, \code{eff_n} and \code{offset0} become named vectors.
   Access these through \code{\link{get_output}}, \code{summary} or
   \code{print} rather than by indexing the slots directly.
-  Use \code{\link{summary.MultiMAP}}, \code{\link{get_output}} and
+  Use \code{\link{summary.dbbMultiArm}}, \code{\link{get_output}} and
   \code{\link{REPORT_pois}} on it.
 }
 \description{

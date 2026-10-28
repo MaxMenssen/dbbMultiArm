@@ -1,7 +1,7 @@
-#' Generate a MultiMAP analysis report template (Poisson endpoint)
+#' Generate a dbbMultiArm analysis report template (Poisson endpoint)
 #'
 #' Writes a Quarto (.qmd) or R Markdown (.Rmd) report template for a Poisson
-#' MultiMAP object (the output of \code{\link{SCI_pois}} or \code{\link{PI_pois}}),
+#' dbbMultiArm object (the output of \code{\link{SCI_pois}} or \code{\link{PI_pois}}),
 #' suitable as a starting point for the statistical analysis plan (SAP) of a
 #' study. The fitted object is saved next to the report as an \code{.rds} file;
 #' the template loads it and rebuilds every table and figure with live code
@@ -24,7 +24,7 @@
 #' The prior / robustified-prior / posterior mixture densities are drawn with
 #' RBesT's own \code{plot} method; the prediction-interval figure and the
 #' simultaneous-credible-interval figure use the generic
-#' \code{\link{plot.MultiMAP}} method (\code{which = 1} and \code{which = 2}).
+#' \code{\link{plot.dbbMultiArm}} method (\code{which = 1} and \code{which = 2}).
 #'
 #' For a multi-arm borrowing object (\code{histdat} supplied to
 #' \code{\link{SCI_pois}} / \code{\link{PI_pois}} as a named list), the template
@@ -33,14 +33,14 @@
 #' and (for \code{SCI_pois} input) posterior -- followed by the non-borrowed
 #' groups and the simultaneous credible intervals.
 #'
-#' @param x a Poisson MultiMAP object produced by \code{\link{SCI_pois}} or
+#' @param x a Poisson dbbMultiArm object produced by \code{\link{SCI_pois}} or
 #'   \code{\link{PI_pois}} (single-arm or multi-arm).
 #' @param path output directory. \code{NULL} (default) writes into
 #'   \code{tempdir()} (CRAN policy: do not write to the user's filespace unless a
 #'   location is given explicitly); pass an explicit directory (e.g.
 #'   \code{getwd()}) to write elsewhere.
 #' @param file file name of the report within \code{path}. \code{NULL} (default)
-#'   uses \code{"MultiMAP_report.qmd"} (qmd) or \code{"MultiMAP_report.Rmd"}
+#'   uses \code{"dbbMultiArm_report.qmd"} (qmd) or \code{"dbbMultiArm_report.Rmd"}
 #'   (rmd). A full path may also be given, in which case its directory overrides
 #'   \code{path}.
 #' @param title report title (YAML).
@@ -71,17 +71,17 @@
 REPORT_pois <- function(x,
                    path      = NULL,
                    file      = NULL,
-                   title     = "MultiMAP analysis report",
+                   title     = "dbbMultiArm analysis report",
                    author    = "",
                    format    = c("qmd", "rmd"),
                    overwrite = FALSE){
 
-        # Validate: Poisson MultiMAP object from SCI_pois() / PI_pois()
-        if(!inherits(x, "MultiMAP")){
-                stop("x is not of class MultiMAP")
+        # Validate: Poisson dbbMultiArm object from SCI_pois() / PI_pois()
+        if(!inherits(x, "dbbMultiArm")){
+                stop("x is not of class dbbMultiArm")
         }
-        if(!inherits(x, "MultiMAP_pois")){
-                stop("REPORT_pois() expects a Poisson MultiMAP object (from SCI_pois() or PI_pois()); use REPORT_norm() / REPORT_binom() for other endpoints.")
+        if(!inherits(x, "dbbMultiArm_pois")){
+                stop("REPORT_pois() expects a Poisson dbbMultiArm object (from SCI_pois() or PI_pois()); use REPORT_norm() / REPORT_binom() for other endpoints.")
         }
         # SCI_pois() objects carry class "SCI"; PI_pois() objects carry class "PI".
         is_sci <- inherits(x, "SCI")
@@ -102,7 +102,7 @@ REPORT_pois <- function(x,
 
         # File name within 'path'.
         if(is.null(file)){
-                file <- if(format == "qmd") "MultiMAP_report.qmd" else "MultiMAP_report.Rmd"
+                file <- if(format == "qmd") "dbbMultiArm_report.qmd" else "dbbMultiArm_report.Rmd"
         }
         if(identical(dirname(file), ".")){
                 file <- file.path(path, file)
@@ -152,7 +152,7 @@ REPORT_pois <- function(x,
         #-----------------------------------------------------------------------
         # Body (identical for qmd / rmd). {{DATA_FILE}} is the only token substituted.
 
-        preamble <- r"---(*This is an auto-generated MultiMAP report template. Replace the italicised
+        preamble <- r"---(*This is an auto-generated dbbMultiArm report template. Replace the italicised
 guidance with study-specific text; the tables and figures are produced from the
 fitted object and update whenever the document is re-rendered.*
 
@@ -163,8 +163,8 @@ library(RBesT)
 library(ggplot2)
 library(knitr)
 
-# MultiMAP provides SCI_pois() / PI_pois() and the summary / get_output methods.
-library(MultiMAP)
+# dbbMultiArm provides SCI_pois() / PI_pois() and the summary / get_output methods.
+library(dbbMultiArm)
 
 # Fitted object produced by SCI_pois() / PI_pois() and saved by REPORT_pois():
 x <- readRDS("{{DATA_FILE}}")
@@ -445,7 +445,7 @@ https://doi.org/10.18637/jss.v100.i19
         # for SCI_pois() input -- posterior).
         #=======================================================================
 
-        preamble_multi <- r"---(*This is an auto-generated MultiMAP multi-arm report template. Replace the
+        preamble_multi <- r"---(*This is an auto-generated dbbMultiArm multi-arm report template. Replace the
 italicised guidance with study-specific text; the tables and figures are
 produced from the fitted object and update whenever the document is re-rendered.*
 
@@ -455,7 +455,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
 library(RBesT)
 library(ggplot2)
 library(knitr)
-library(MultiMAP)
+library(dbbMultiArm)
 
 # Fitted multi-arm object produced by SCI_pois() / PI_pois():
 x <- readRDS("{{DATA_FILE}}")

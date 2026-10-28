@@ -9,14 +9,14 @@ make_pois_data <- function(){
                                   offset = c(3, 3, 3)))
 }
 
-test_that("SCI_pois (EB) returns a well-formed MultiMAP object", {
+test_that("SCI_pois (EB) returns a well-formed dbbMultiArm object", {
         d   <- make_pois_data()
         res <- suppressWarnings(SCI_pois(d$histdat, d$newdat, prior_est = "EB",
                                          contr = "rate_diff", seed = 1))
 
-        expect_s3_class(res, "MultiMAP")
+        expect_s3_class(res, "dbbMultiArm")
         expect_true(inherits(res, "SCI"))
-        expect_true(inherits(res, "MultiMAP_pois"))
+        expect_true(inherits(res, "dbbMultiArm_pois"))
         expect_identical(res$distr, "poisson")
 
         expect_named(res$comp, c("comp", "estimate", "lower.ci", "upper.ci"))
@@ -59,6 +59,6 @@ test_that("SCI_pois (MAP) produces a Poisson SCI object", {
         d   <- make_pois_data()
         res <- suppressWarnings(SCI_pois(d$histdat, d$newdat, prior_est = "MAP",
                                          contr = "rate_diff", seed = 1))
-        expect_true(inherits(res, "SCI") && inherits(res, "MultiMAP_pois"))
+        expect_true(inherits(res, "SCI") && inherits(res, "dbbMultiArm_pois"))
         expect_equal(nrow(res$comp), 2)
 })

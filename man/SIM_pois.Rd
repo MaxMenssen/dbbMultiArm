@@ -2,7 +2,7 @@
 % Please edit documentation in R/SIM_pois.R
 \name{SIM_pois}
 \alias{SIM_pois}
-\title{Monte-Carlo operating characteristics for the Poisson MultiMAP workflow}
+\title{Monte-Carlo operating characteristics for the Poisson dbbMultiArm workflow}
 \usage{
 SIM_pois(
   n_sim,

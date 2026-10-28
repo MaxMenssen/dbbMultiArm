@@ -1,6 +1,6 @@
-#' Summarise a MultiMAP object
+#' Summarise a dbbMultiArm object
 #'
-#' Printed summary of a MultiMAP object (normal, binomial or Poisson endpoint).
+#' Printed summary of a dbbMultiArm object (normal, binomial or Poisson endpoint).
 #' The borrowing information is printed as one block per arm for which historical
 #' data were used -- the concurrent control alone when \code{histdat} is a single
 #' data frame, or every named arm when \code{histdat} is a list (multi-arm
@@ -16,7 +16,7 @@
 #' printed after the blocks, with the heading naming the contrast type taken from
 #' \code{object$contr}.
 #'
-#' @param object a MultiMAP object (from \code{\link{SCI_norm}},
+#' @param object a dbbMultiArm object (from \code{\link{SCI_norm}},
 #'   \code{\link{PI_norm}}, \code{\link{SCI_binom}}, \code{\link{PI_binom}} or
 #'   \code{\link{SCI_pois}}).
 #' @param ... currently ignored.
@@ -36,11 +36,11 @@
 #' summary(res)
 #' }
 #' @export
-summary.MultiMAP <- function(object, ...){
+summary.dbbMultiArm <- function(object, ...){
 
-        # Stop if object is not a MultiMAP object
-        if(!inherits(object, "MultiMAP")){
-                stop("object is not of class MultiMAP")
+        # Stop if object is not a dbbMultiArm object
+        if(!inherits(object, "dbbMultiArm")){
+                stop("object is not of class dbbMultiArm")
         }
 
         # Coverage level 1 - alpha (falls back to the literal "1-alpha" if the

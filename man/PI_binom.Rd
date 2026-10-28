@@ -72,8 +72,8 @@ the \code{gMAP} MCMC (for \code{prior_est = "MAP"}) is reproducible.
 \code{NULL} (default) leaves the RNG state untouched.}
 }
 \value{
-A MultiMAP object: a named list with S3 class
-  \code{c("PI", "MultiMAP_binom", "MultiMAP")} and the following slots:
+A dbbMultiArm object: a named list with S3 class
+  \code{c("PI", "dbbMultiArm_binom", "dbbMultiArm")} and the following slots:
   \describe{
     \item{\code{comp}}{\code{NA} (only \code{\link{SCI_binom}} fills this).}
     \item{\code{contr}}{\code{NA} (only \code{\link{SCI_binom}} fills this).}
@@ -119,7 +119,7 @@ A MultiMAP object: a named list with S3 class
   \code{eff_n_map} and \code{eff_n} become named vectors. Access these through
   \code{\link{get_output}}, \code{summary} or \code{print} rather than by
   indexing the slots directly.
-  Use \code{\link{summary.MultiMAP}}, \code{\link{get_output}} and
+  Use \code{\link{summary.dbbMultiArm}}, \code{\link{get_output}} and
   \code{\link{REPORT_binom}} on it.
 }
 \description{

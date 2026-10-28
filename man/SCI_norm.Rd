@@ -97,8 +97,8 @@ length-2 numeric \code{c(mean, sd)} specifies a proper normal prior that is
 conjugate-updated with the arm likelihood instead.}
 }
 \value{
-A MultiMAP object: a named list with S3 class
-  \code{c("SCI", "MultiMAP_norm", "MultiMAP")} and the following slots:
+A dbbMultiArm object: a named list with S3 class
+  \code{c("SCI", "dbbMultiArm_norm", "dbbMultiArm")} and the following slots:
   \describe{
     \item{\code{comp}}{data frame of the simultaneous credible intervals: one
       row per contrast with columns \code{comp} (label), \code{estimate},
@@ -153,8 +153,8 @@ A MultiMAP object: a named list with S3 class
   are \code{NA}; and \code{newdat} omits the posterior-parameter columns.
   Access these through \code{\link{get_output}}, \code{summary} or
   \code{print} rather than by indexing the slots directly.
-  Use \code{\link{plot.MultiMAP}}, \code{\link{print.MultiMAP}},
-  \code{\link{summary.MultiMAP}}, \code{\link{get_output}} and
+  Use \code{\link{plot.dbbMultiArm}}, \code{\link{print.dbbMultiArm}},
+  \code{\link{summary.dbbMultiArm}}, \code{\link{get_output}} and
   \code{\link{REPORT_norm}} on it.
 }
 \description{

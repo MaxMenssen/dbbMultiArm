@@ -49,8 +49,8 @@
 #'   the \code{gMAP} MCMC is reproducible. \code{NULL} (default) leaves the RNG
 #'   state untouched.
 #'
-#' @return A MultiMAP object: a named list with S3 class
-#'   \code{c("PI", "MultiMAP_norm", "MultiMAP")} and the following slots:
+#' @return A dbbMultiArm object: a named list with S3 class
+#'   \code{c("PI", "dbbMultiArm_norm", "dbbMultiArm")} and the following slots:
 #'   \describe{
 #'     \item{\code{comp}}{\code{NA} (only \code{\link{SCI_norm}} fills this).}
 #'     \item{\code{contr}}{\code{NA} (only \code{\link{SCI_norm}} fills this).}
@@ -92,7 +92,7 @@
 #'   \code{eff_n_map} and \code{eff_n} become named vectors. Access these through
 #'   \code{\link{get_output}}, \code{summary} or \code{print} rather than by
 #'   indexing the slots directly.
-#'   Use \code{\link{plot.MultiMAP}}, \code{\link{summary.MultiMAP}},
+#'   Use \code{\link{plot.dbbMultiArm}}, \code{\link{summary.dbbMultiArm}},
 #'   \code{\link{get_output}} and \code{\link{REPORT_norm}} on it.
 #'
 #' @seealso \code{\link{SCI_norm}}, \code{\link{REPORT_norm}}
@@ -359,7 +359,7 @@ PI_norm <- function(histdat,
                          "seed"       = if(is.null(seed)) NA_integer_ else seed)
 
         out_s3 <- structure(out_list,
-                            class = c("PI", "MultiMAP_norm", "MultiMAP"))
+                            class = c("PI", "dbbMultiArm_norm", "dbbMultiArm"))
 
         return(out_s3)
 }
@@ -455,5 +455,5 @@ PI_norm <- function(histdat,
                          "alpha"       = alpha,
                          "seed"        = if(is.null(seed)) NA_integer_ else seed)
 
-        structure(out_list, class = c("PI", "MultiMAP_norm", "MultiMAP"))
+        structure(out_list, class = c("PI", "dbbMultiArm_norm", "dbbMultiArm"))
 }

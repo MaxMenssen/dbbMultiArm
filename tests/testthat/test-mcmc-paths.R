@@ -14,7 +14,7 @@ test_that("SCI_norm (MAP) produces a normal SCI object", {
                               n     = c(30, 30, 30))
         res <- suppressWarnings(SCI_norm(histdat, newdat, contr = "mean_diff", seed = 1))
 
-        expect_true(inherits(res, "SCI") && inherits(res, "MultiMAP_norm"))
+        expect_true(inherits(res, "SCI") && inherits(res, "dbbMultiArm_norm"))
         expect_identical(res$distr, "normal")
         expect_equal(nrow(res$comp), 2)
         expect_s3_class(plot(res, which = 3), "ggplot")
@@ -42,6 +42,6 @@ test_that("SCI_binom (MAP) produces a binomial SCI object", {
                               non_events = c(22, 16, 13))
         res <- suppressWarnings(SCI_binom(histdat, newdat, prior_est = "MAP",
                                           contr = "pi_diff", seed = 1))
-        expect_true(inherits(res, "SCI") && inherits(res, "MultiMAP_binom"))
+        expect_true(inherits(res, "SCI") && inherits(res, "dbbMultiArm_binom"))
         expect_equal(nrow(res$comp), 2)
 })

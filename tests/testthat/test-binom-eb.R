@@ -9,14 +9,14 @@ make_binom_data <- function(){
                                   non_events = c(22, 16, 13)))
 }
 
-test_that("SCI_binom (EB) returns a well-formed MultiMAP object", {
+test_that("SCI_binom (EB) returns a well-formed dbbMultiArm object", {
         d   <- make_binom_data()
         res <- suppressWarnings(SCI_binom(d$histdat, d$newdat, prior_est = "EB",
                                           contr = "pi_diff", seed = 1))
 
-        expect_s3_class(res, "MultiMAP")
+        expect_s3_class(res, "dbbMultiArm")
         expect_true(inherits(res, "SCI"))
-        expect_true(inherits(res, "MultiMAP_binom"))
+        expect_true(inherits(res, "dbbMultiArm_binom"))
         expect_identical(res$distr, "betabinomial")
 
         # comp table: one row per treatment, standardised columns
@@ -52,7 +52,7 @@ test_that("PI_binom (EB) returns a PI object with an NA posterior", {
         d      <- make_binom_data()
         m_pi   <- suppressWarnings(PI_binom(d$histdat, n0 = 30, prior_est = "EB", seed = 1))
         expect_true(inherits(m_pi, "PI"))
-        expect_true(inherits(m_pi, "MultiMAP_binom"))
+        expect_true(inherits(m_pi, "dbbMultiArm_binom"))
         expect_named(m_pi$pred_int, c("median", "lower", "upper"))
         expect_true(is.na(m_pi$eff_n_post))
 })

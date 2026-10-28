@@ -1,6 +1,6 @@
-#' Generate a MultiMAP analysis report template
+#' Generate a dbbMultiArm analysis report template
 #'
-#' Writes a Quarto (.qmd) or R Markdown (.Rmd) report template for a MultiMAP
+#' Writes a Quarto (.qmd) or R Markdown (.Rmd) report template for a dbbMultiArm
 #' object, suitable as a starting point for the statistical analysis plan (SAP)
 #' of a clinical study. The fitted object is saved next to the report as an
 #' \code{.rds} file; the template loads it and rebuilds every table and figure
@@ -30,14 +30,14 @@
 #' prior and (for \code{SCI_norm} input) posterior -- followed by the non-borrowed
 #' groups and the simultaneous credible intervals.
 #'
-#' @param x a MultiMAP object produced by \code{\link{SCI_norm}} or
+#' @param x a dbbMultiArm object produced by \code{\link{SCI_norm}} or
 #'   \code{\link{PI_norm}} (single-arm or multi-arm).
 #' @param path output directory. \code{NULL} (default) writes into
 #'   \code{tempdir()} (CRAN policy: do not write to the user's filespace unless a
 #'   location is given explicitly); pass an explicit directory (e.g.
 #'   \code{getwd()}) to write elsewhere.
 #' @param file file name of the report within \code{path}. \code{NULL} (default)
-#'   uses \code{"MultiMAP_report.qmd"} (qmd) or \code{"MultiMAP_report.Rmd"}
+#'   uses \code{"dbbMultiArm_report.qmd"} (qmd) or \code{"dbbMultiArm_report.Rmd"}
 #'   (rmd). A full path may also be given, in which case its directory overrides
 #'   \code{path}.
 #' @param title report title (YAML).
@@ -68,14 +68,14 @@
 REPORT_norm <- function(x,
                    path      = NULL,
                    file      = NULL,
-                   title     = "MultiMAP analysis report",
+                   title     = "dbbMultiArm analysis report",
                    author    = "",
                    format    = c("qmd", "rmd"),
                    overwrite = FALSE){
 
-        # Validate: MultiMAP object from SCI_norm() (carries newdat + comp)
-        if(!inherits(x, "MultiMAP")){
-                stop("x is not of class MultiMAP")
+        # Validate: dbbMultiArm object from SCI_norm() (carries newdat + comp)
+        if(!inherits(x, "dbbMultiArm")){
+                stop("x is not of class dbbMultiArm")
         }
         # SCI_norm() objects carry class "SCI"; PI_norm() objects carry class "PI"
         # and provide only the prior / prediction interval.
@@ -101,7 +101,7 @@ REPORT_norm <- function(x,
         # file name is placed inside 'path'; a file given with its own directory
         # keeps that directory (overriding 'path').
         if(is.null(file)){
-                file <- if(format == "qmd") "MultiMAP_report.qmd" else "MultiMAP_report.Rmd"
+                file <- if(format == "qmd") "dbbMultiArm_report.qmd" else "dbbMultiArm_report.Rmd"
         }
         if(identical(dirname(file), ".")){
                 file <- file.path(path, file)
@@ -153,7 +153,7 @@ REPORT_norm <- function(x,
         # (backslashes, backticks, chunk options) verbatim; {{DATA_FILE}} is the
         # only token substituted below.
 
-        preamble <- r"---(*This is an auto-generated MultiMAP report template. Replace the italicised
+        preamble <- r"---(*This is an auto-generated dbbMultiArm report template. Replace the italicised
 guidance with study-specific text; the tables and figures are produced from the
 fitted object and update whenever the document is re-rendered.*
 
@@ -164,9 +164,9 @@ library(RBesT)
 library(ggplot2)
 library(knitr)
 
-# MultiMAP provides SCI_norm() / PI_norm() and the plot / print / summary /
+# dbbMultiArm provides SCI_norm() / PI_norm() and the plot / print / summary /
 # get_output methods used below.
-library(MultiMAP)
+library(dbbMultiArm)
 
 # Fitted object produced by SCI_norm() and saved by REPORT_norm():
 x <- readRDS("{{DATA_FILE}}")
@@ -429,7 +429,7 @@ https://doi.org/10.18637/jss.v100.i19
         # template so every chunk stays a plain (single-object) chunk.
         #=======================================================================
 
-        preamble_multi <- r"---(*This is an auto-generated MultiMAP multi-arm report template. Replace the
+        preamble_multi <- r"---(*This is an auto-generated dbbMultiArm multi-arm report template. Replace the
 italicised guidance with study-specific text; the tables and figures are
 produced from the fitted object and update whenever the document is re-rendered.*
 
@@ -439,7 +439,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
 library(RBesT)
 library(ggplot2)
 library(knitr)
-library(MultiMAP)
+library(dbbMultiArm)
 
 # Fitted multi-arm object produced by SCI_norm() / PI_norm():
 x <- readRDS("{{DATA_FILE}}")

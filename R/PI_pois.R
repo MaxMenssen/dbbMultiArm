@@ -55,8 +55,8 @@
 #'   \code{c(a, b)} used for the empirical-Bayes prior when all historical counts
 #'   are zero.
 #'
-#' @return A MultiMAP object: a named list with S3 class
-#'   \code{c("PI", "MultiMAP_pois", "MultiMAP")} and the following slots:
+#' @return A dbbMultiArm object: a named list with S3 class
+#'   \code{c("PI", "dbbMultiArm_pois", "dbbMultiArm")} and the following slots:
 #'   \describe{
 #'     \item{\code{comp}}{\code{NA} (only \code{\link{SCI_pois}} fills this).}
 #'     \item{\code{contr}}{\code{NA} (only \code{\link{SCI_pois}} fills this).}
@@ -83,7 +83,7 @@
 #'       rate (named \code{median}, \code{lower}, \code{upper}).}
 #'     \item{\code{offset0}}{the exposure the predictive was built for (a single
 #'       value, or one per arm for a multi-arm object); used by
-#'       \code{\link{plot.MultiMAP}} to draw the predictive on the rate scale.}
+#'       \code{\link{plot.dbbMultiArm}} to draw the predictive on the rate scale.}
 #'     \item{\code{shrinkage}}{\code{NA} (only \code{\link{SCI_pois}} fills this).}
 #'     \item{\code{simpost}}{\code{NA} (only \code{\link{SCI_pois}} fills this).}
 #'     \item{\code{tau_prior}}{a list with the gMAP between-study heterogeneity
@@ -102,7 +102,7 @@
 #'   \code{eff_n_map}, \code{eff_n} and \code{offset0} become named vectors.
 #'   Access these through \code{\link{get_output}}, \code{summary} or
 #'   \code{print} rather than by indexing the slots directly.
-#'   Use \code{\link{summary.MultiMAP}}, \code{\link{get_output}} and
+#'   Use \code{\link{summary.dbbMultiArm}}, \code{\link{get_output}} and
 #'   \code{\link{REPORT_pois}} on it.
 #'
 #' @seealso \code{\link{SCI_pois}}, \code{\link{REPORT_pois}}
@@ -371,7 +371,7 @@ PI_pois <- function(histdat,
                          "seed"       = if(is.null(seed)) NA_integer_ else seed)
 
         out_s3 <- structure(out_list,
-                            class = c("PI", "MultiMAP_pois", "MultiMAP"))
+                            class = c("PI", "dbbMultiArm_pois", "dbbMultiArm"))
 
         return(out_s3)
 }
@@ -445,5 +445,5 @@ PI_pois <- function(histdat,
                          "alpha"       = alpha,
                          "seed"        = if(is.null(seed)) NA_integer_ else seed)
 
-        structure(out_list, class = c("PI", "MultiMAP_pois", "MultiMAP"))
+        structure(out_list, class = c("PI", "dbbMultiArm_pois", "dbbMultiArm"))
 }

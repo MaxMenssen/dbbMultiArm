@@ -37,7 +37,7 @@ test_that("h1_pois validates its inputs", {
 test_that("PI_pois (EB) returns a PI object with an NA posterior", {
         histdat <- data.frame(events = c(4, 22, 6, 35, 9, 28, 3, 26), offset = rep(2, 8))
         m_pi <- suppressWarnings(PI_pois(histdat, offset0 = 3, prior_est = "EB", seed = 1))
-        expect_true(inherits(m_pi, "PI") && inherits(m_pi, "MultiMAP_pois"))
+        expect_true(inherits(m_pi, "PI") && inherits(m_pi, "dbbMultiArm_pois"))
         expect_named(m_pi$pred_int, c("median", "lower", "upper"))
         expect_true(is.na(m_pi$eff_n_post))
         expect_identical(m_pi$distr, "poisson")
